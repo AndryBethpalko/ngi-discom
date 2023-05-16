@@ -72,18 +72,16 @@ export class AppComponent {
     };
 
     files: string[] = [
-        `${window.location.origin}/assets/0002.DCM`,
-        `${window.location.origin}/assets/MR000000.dcm`,
+        `0002.DCM`,
+        `MR000000.dcm`,
     ]
 
     hideDicom: boolean = true;
-    reload: number = 0;
 
 
-    setFileUrl(): void {
+    setFileUrl(image:string): void {
         this.hideDicom = false;
-            this.reload++;
-            this.config.fileUrl = this.files[this.reload % this.files.length]
+            this.config.fileUrl = `${window.location.origin}/assets/${image}`
             this.config = Object.assign({},this.config);
             console.log(this.config)
         setTimeout(

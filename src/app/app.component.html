@@ -1,12 +1,15 @@
 <div style="padding: 32px; height: calc(100% - 64px);">
 
-  <button style="margin-right: 16px"
-          mat-mini-fab
-          color="primary"
-          (click)="setFileUrl()"
-  >
-    <mat-icon>play_arrow</mat-icon>
-  </button>
+  <div *ngFor="let image of files">
+    <button style="margin-right: 16px"
+            mat-mini-fab
+            color="primary"
+            (click)="setFileUrl(image)"
+    >
+      <mat-icon>play_arrow</mat-icon>
+    </button>
+    <span>{{image}}</span>
+  </div>
   <ng-container *ngIf="viewerProvider">
     <div style="margin-bottom: 16px; display: flex; justify-content: center"
          *ngIf="viewerProvider.playClip"
@@ -48,6 +51,7 @@
     </div>
   </ng-container>
   <div style="display: flex; justify-content: center">
-    <ngx-dicom *ngIf="this.config.fileUrl && this.hideDicom" [config]="config" (initialized)="viewerProvider = $event"></ngx-dicom>
+    <ngx-dicom *ngIf="config.fileUrl && hideDicom" [config]="config"
+               (initialized)="viewerProvider = $event"></ngx-dicom>
   </div>
 </div>
