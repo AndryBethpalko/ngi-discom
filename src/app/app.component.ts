@@ -74,6 +74,11 @@ export class AppComponent {
     files: string[] = [
         `0002.DCM`,
         `MR000000.dcm`,
+        `Knee.dcm`,
+        `L-Spine1.dcm`,
+        `L-Spine2.dcm`,
+        `T1_SAG.dcm`,
+        `t2_str.dcm`
     ]
 
     hideDicom: boolean = true;
